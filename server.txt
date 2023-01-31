@@ -1,0 +1,74 @@
+> npm init -y 
+to create your package.json
+
+> npm install fastify
+
+after that install typescript as a development package
+> npm install typescript -D
+
+> npx tsc --init
+to create tsconfig.json
+
+> npm i tsx -D
+
+create a script in package.json to run the server like below
+"scripts": {
+    "dev": "tsx watch src/server.ts"
+
+install primsa as a development package
+> npm i -D prisma
+> npm i @prisma/client
+> npx prisma init --datasource-provider SQLite
+
+create your model (database table) and then run the command
+> npx prisma migrate dev
+to create the table
+
+run 
+> npx prisma studio
+to see you db on the browser
+
+setting up CORS, to set up security on DB
+> npm i @fastify/cors
+
+
+https://www.npmjs.com/package/prisma-erd-generator
+generate prisma diagram 
+> npm i -D prisma-erd-generator @mermaid-js/mermaid-cli
+
+and then paste the code below in you schema.prisma
+generator erd {
+  provider = "prisma-erd-generator"
+}
+
+you can copy your seed.ts structure from the link below
+https://www.prisma.io/docs/guides/database/seed-database
+
+and place the line below in your package.json
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  }
+
+Every route file must to be ASYNCRONOUS in this case 
+we start doing it in ROUTES.TS
+
+On 35:22 has a TYPE: ANY error is interesting to see
+the explication in this time on how to get a correct
+variable for a function
+You can validate the data to check if the data really
+come to your function so you can use ZOD
+
+Using ZOD you define the TYPE variable for you REQUEST
+Install ZOD 
+> npm i zod
+
+in the first validate test you will see a STRING validate
+and an NUMBER ARRAY TEST
+
+install dayjs to work with dates
+> npm i dayjs
+
+  const today = dayjs(new Date).startOf('day').toDate();
+insert the code above to reset you time to 00:00:00 of 
+the day that is inserted into database
+
